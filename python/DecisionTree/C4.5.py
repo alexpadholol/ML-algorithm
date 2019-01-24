@@ -57,11 +57,11 @@ def loaddata(file):
 def majorityCnt(classList):
     classCnt = {}
     for cls in classList:
-        if not classCnt.has_key(cls):
+        if not cls in classCnt:
             classCnt[cls] = 0
         classCnt[cls] += 1
 
-    SortClassCnt = sorted(classCnt.iteritems(),key=lambda d:d[1],reverse=True)
+    SortClassCnt = sorted(classCnt.items(),key=lambda d:d[1],reverse=True)
     return SortClassCnt[0][0]
 
 def calcShannonEnt(trainData):
@@ -69,7 +69,7 @@ def calcShannonEnt(trainData):
     labelDic = {}
     for trainLine in trainData:
         currentLabel = trainLine[-1]
-        if not labelDic.has_key(currentLabel):
+        if not currentLabel in labelDic:
             labelDic[currentLabel] = 0
         labelDic[currentLabel] += 1
 
